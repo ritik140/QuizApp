@@ -1,20 +1,22 @@
-import React, { useState } from "react";
-import "../Css/MainPage.css";
+import "./mainpage.css";
+import React, { useState, useEffect } from "react";
+import { useForm } from "../../contexts/formData";
 
 const MainPage = () => {
-  const [input, setInput] = useState(10);
-  const [active, setActive] = useState("");
+  const { setData } = useForm();
+
   const [category, setCategory] = useState("Linux");
+  const [difficulty, setDifficulty] = useState("");
+  const [quest, setQuest] = useState(10);
 
   const handelButton = (level) => {
-    setActive(level);
+    setDifficulty(level);
   };
 
   const formSubmit = (e) => {
     e.preventDefault();
-    console.log("Category:", category);
-    console.log("Difficulty Level:", active);
-    console.log("Number of Questions:", input);
+    setData({ category, difficulty, quest });
+    console.log(category, difficulty, quest);
   };
 
   return (
@@ -40,21 +42,21 @@ const MainPage = () => {
             <label className="text">Difficulty:</label>
             <div className="btn">
               <button
-                className={`bt ${active == "easy" ? "easy" : ""}`}
+                className={`bt ${difficulty == "easy" ? "easy" : ""}`}
                 type="button"
                 onClick={() => handelButton("easy")}
               >
                 Easy
               </button>
               <button
-                className={`bt ${active == "medium" ? "medium" : ""}`}
+                className={`bt ${difficulty == "medium" ? "medium" : ""}`}
                 type="button"
                 onClick={() => handelButton("medium")}
               >
                 Medium
               </button>
               <button
-                className={`bt ${active == "hard" ? "hard" : ""}`}
+                className={`bt ${difficulty == "hard" ? "hard" : ""}`}
                 type="button"
                 onClick={() => handelButton("hard")}
               >
@@ -66,8 +68,8 @@ const MainPage = () => {
             <input
               className="number_bar"
               type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
+              value={quest}
+              onChange={(e) => setQuest(e.target.value)}
             />
           </ul>
 

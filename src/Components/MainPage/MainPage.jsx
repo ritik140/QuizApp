@@ -16,7 +16,6 @@ const MainPage = () => {
   const formSubmit = (e) => {
     e.preventDefault();
     setData({ category, difficulty, quest });
-    console.log(category, difficulty, quest);
   };
 
   return (

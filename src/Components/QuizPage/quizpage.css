@@ -30,13 +30,14 @@
 }
 .quest {
   text-align: left;
-  font-size: large;
   white-space: normal; /* Allows text to wrap */
   word-wrap: break-word; /* Breaks long words if necessary */
   overflow-wrap: break-word; /* Helps break long words for compatibility */
   width: 100%; /* Ensure the element has enough space to allow wrapping */
   max-width: 100%; /* Optional: limit the width */
   font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
 .options {
@@ -44,13 +45,13 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  margin-top: 20px;
-  padding: 5px;
+  /* margin-top: 10px; */
+  /* padding: 5px; */
 }
 .btnp {
-  padding: 20px;
-  min-height: 6vh;
-  min-width: 18vh;
+  padding: 10px;
+  min-height: 7vh;
+  min-width: 50vh;
   width: auto;
   height: auto;
   border-radius: 4px;
@@ -63,6 +64,12 @@
   background-color: red;
   color: white;
 }
+
+.btnp.selected {
+  background-color: green;
+  color: white;
+}
+
 .btnp.one {
   transition: none;
   background-color: rgb(38, 212, 15);
@@ -73,4 +80,19 @@
   padding: 10px;
   width: 50vh;
   justify-content: space-between;
+}
+
+.score {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.correct {
+  background-color: green;
+  color: white;
+}
+
+.incorrect {
+  background-color: red;
+  color: white;
 }
